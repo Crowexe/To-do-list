@@ -1,7 +1,7 @@
 import "./App.css";
 import Formulario from "./components/Formulario";
 import TodoItem from "./components/TodoItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FILTER_MAP = {
     All: () => true,
@@ -11,16 +11,21 @@ const FILTER_MAP = {
 
 const filterkeys = Object.keys(FILTER_MAP);
 
-const initialState = [
-    {id: '1', todo: 'leer pdf 1', completed: false },
-    {id: '2', todo: 'leer pdf 2', completed: true },
-    {id: '3', todo: 'leer pdf 3', completed: false }
-]
+const initialState = JSON.parse(localStorage.getItem("todos") || "[]");
+const filterInitialState = localStorage.getItem("filter") || "All";
 
 const App = () => {
 
     const [todos, setTodos] = useState(initialState);
-    const [filter,setFilter] = useState("All");
+    const [filter,setFilter] = useState(filterInitialState);
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos])
+
+    useEffect (() => {
+        localStorage.setItem("filter", filter);    
+    }, [filter])
 
     const handleChangeCompletedTodo = (id) => {
         const newTodos = todos.map(todo => {
@@ -57,7 +62,7 @@ const App = () => {
                 ))}       
             </section>
             <section id="todo-list">
-                {todos.filter(FILTER_MAP[filter]).map(({ id, todo, completed }) => (
+                {todos.length > 0 ? todos.filter(FILTER_MAP[filter]).map(({ id, todo, completed }) => (
                     <TodoItem 
                         key={id} 
                         id={id} 
@@ -67,7 +72,9 @@ const App = () => {
                         deleteTodo={deleteTodo}
                         editTodo={editTodo}
                     />
-                ))}
+                )) : (
+                    <h3>Empty list</h3>
+                )}
             </section>
         </main>
     )
