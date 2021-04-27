@@ -30,7 +30,7 @@ const App = () => {
     const handleChangeCompletedTodo = (id) => {
         const newTodos = todos.map(todo => {
             if(todo.id === id) {
-                return {... todo, completed: !todo.completed};
+                return {...todo, completed: !todo.completed};
             }
             return todo;
         });
