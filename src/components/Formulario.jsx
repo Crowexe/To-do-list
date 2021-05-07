@@ -15,12 +15,13 @@ const Formulario = ({ todos, setTodos }) => {
     return (
         <form onSubmit={handleSubmit}>
             <input 
+                className="barra"
                 type="text" 
                 placeholder="What needs to be done?" 
                 onChange={(e) => setTodo(e.target.value)}
                 value={todo} 
             />
-            <button>Add</button>
+            <button className="add">+</button>
         </form> 
     )
 }

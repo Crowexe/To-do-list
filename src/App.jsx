@@ -54,15 +54,18 @@ const App = () => {
 
     return (
         <main>
-            <header id="top">
-                <h1>To do list</h1>
+            <div id="top">
+                <h1 className="title">TO DO LIST</h1>
+                <div className="Adder">
                 <Formulario todos={todos} setTodos={setTodos} />
                 <section id="filters">
                     {filterkeys.map(filterKey => (
-                        <button key= {filterKey} onClick={() => setFilter(filterKey)}>{filterKey} tasks</button>
+                        <button className="filtros" key= {filterKey} onClick={() => setFilter(filterKey)}>{filterKey} tasks</button>
                     ))}       
                 </section>
-            </header>
+                </div>
+            </div>
+            <div id="mid">
             <section id="todo-list">
                 {todos.length > 0 ? todos.filter(FILTER_MAP[filter]).map(({ id, todo, completed }) => (
                     <TodoItem 
@@ -75,9 +78,10 @@ const App = () => {
                         editTodo={editTodo}
                     />
                 )) : (
-                    <h3>Empty list</h3>
+                    <h3 className="stat">Empty list</h3>
                 )}
             </section>
+            </div>
         </main>
     )
 }
