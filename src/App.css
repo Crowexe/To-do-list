@@ -72,7 +72,7 @@ body {
 #todo-list .status {
     background-color: var(--color-dark);
     text-align: center;
-    margin: 15vh;
+    margin: 13vh;
     border-radius: 0.7rem;
     filter: opacity(80%);
     padding: 4rem;

@@ -75,10 +75,9 @@ const App = () => {
                     />
                 )) : (
                     <section className="status">
-                        <img src="https://i.imgur.com/OMzIpyl.png" alt="checkedlist"></img>
+                        <img id="imgEmpty" src="https://i.imgur.com/OMzIpyl.png" alt="checkedlist"></img>
                         <br></br><h2>Empty list</h2><br></br>
                         <h3>You are already free or you are about to stop being so</h3>
-                        
                     </section>
                 )}
             </section>
