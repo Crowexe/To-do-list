@@ -54,18 +54,14 @@ const App = () => {
 
     return (
         <main>
-            <div id="top">
-                <h1 className="title">TO DO LIST</h1>
-                <div className="Adder">
-                <Formulario todos={todos} setTodos={setTodos} />
-                <section id="filters">
-                    {filterkeys.map(filterKey => (
-                        <button className="filtros" key= {filterKey} onClick={() => setFilter(filterKey)}>{filterKey} tasks</button>
-                    ))}       
-                </section>
-                </div>
-            </div>
-            <div id="mid">
+            <section id="top">
+                <h1 className="title">To-do-list</h1>          
+                    <section id="filters">
+                        {filterkeys.map(filterKey => (
+                            <button className="filtros" key= {filterKey} onClick={() => setFilter(filterKey)}>{filterKey} tasks</button>
+                        ))}       
+                    </section>
+            </section>
             <section id="todo-list">
                 {todos.length > 0 ? todos.filter(FILTER_MAP[filter]).map(({ id, todo, completed }) => (
                     <TodoItem 
@@ -78,10 +74,17 @@ const App = () => {
                         editTodo={editTodo}
                     />
                 )) : (
-                    <h3 className="stat">Empty list</h3>
+                    <section className="status">
+                        <img src="https://i.imgur.com/OMzIpyl.png"></img>
+                        <br></br><h2>Empty list</h2><br></br>
+                        <h3>You are already free or you are about to stop being so</h3>
+                        
+                    </section>
                 )}
             </section>
-            </div>
+            <section id="bot">
+                <Formulario todos={todos} setTodos={setTodos} />
+            </section>
         </main>
     )
 }
