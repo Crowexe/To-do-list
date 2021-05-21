@@ -55,7 +55,7 @@ const App = () => {
     return (
         <main>
             <section id="top">
-                <h1 className="title">To-do-list</h1>          
+                <h1 className="title">To do list</h1>          
                     <section id="filters">
                         {filterkeys.map(filterKey => (
                             <button className="filtros" key= {filterKey} onClick={() => setFilter(filterKey)}>{filterKey} tasks</button>
@@ -75,7 +75,7 @@ const App = () => {
                     />
                 )) : (
                     <section className="status">
-                        <img id="imgEmpty" src="https://i.imgur.com/OMzIpyl.png" alt="checkedlist"></img>
+                        <img src="https://i.imgur.com/OMzIpyl.png" alt="checkedlist"/>
                         <br></br><h2>Empty list</h2><br></br>
                         <h3>You are already free or you are about to stop being so</h3>
                     </section>

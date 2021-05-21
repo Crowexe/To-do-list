@@ -66,7 +66,7 @@ body {
     color: aliceblue;
     display: grid;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 80px;
 }
 
 #todo-list .status {
@@ -86,8 +86,52 @@ body {
     font-size: 2rem;
 }
 
-#todo-list input {
-    margin: 2rem;
+.todo {
+    font-size: 1.2rem;
+    background-color: var(--color-dark);
+    width: 80vw;
+    padding: 0.7rem;
+    border-radius: .3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: baseline;
+    justify-items: center;
+}
+
+.todo .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+
+.todo .actions button {
+    background: #fff;
+    border: 2px solid rgb(189, 189, 189);
+    color:var(--color-dark);
+    padding: .4rem;
+    font-size: 1rem;
+    outline: none;
+    font-weight: bold;
+}
+
+.todo .actions button:focus {
+    border: 2px solid var(--color-dark);
+}
+
+.todo .actions button:nth-child(2) {
+    background: var(--color-first);
+    color: white;
+    border: 2px solid var(--color-first);
+}
+
+.todo .actions button:nth-child(2):focus {
+    border-color: var(--color-second);
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 1rem;
 }
 
 #bot  {

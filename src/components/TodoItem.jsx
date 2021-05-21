@@ -25,15 +25,17 @@ const TodoItem = ({ id, todo, completed, handleChangeCompletedTodo, deleteTodo, 
     }
 
     return (
-        <section id="todo">
+        <section className="todo">
+            <div className="texto">
                 <input 
                     id={`todo-${id}`} 
                     type="checkbox" 
                     checked={completed} 
                     onClick={() => handleChangeCompletedTodo(id)}
                 />
+            </div>
                 <label htmlFor={`todo-${id}`}>{todo}</label>
-            <div className="actions">
+                <div className="actions">
                 <button onClick={() => setIsEditing(true)}>Edit</button>
                 <button
                     onClick={() => deleteTodo(id)}
