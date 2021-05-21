@@ -87,7 +87,7 @@ body {
     font-size: 2rem;
 }
 
-#todo {
+#todo-list input {
     margin: 2rem;
 }
 
