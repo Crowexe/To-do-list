@@ -74,8 +74,8 @@ const App = () => {
                         editTodo={editTodo}
                     />
                 )) : (
-                    <section className="status">
-                        <img src="https://i.imgur.com/OMzIpyl.png"></img>
+                    <section className={'status'}>
+                        <img src={'https://i.imgur.com/OMzIpyl.png'} />
                         <br></br><h2>Empty list</h2><br></br>
                         <h3>You are already free or you are about to stop being so</h3>
                         
@@ -86,7 +86,7 @@ const App = () => {
                 <Formulario todos={todos} setTodos={setTodos} />
             </section>
         </main>
-    )
+    );
 }
 
 export default App;
