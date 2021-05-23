@@ -4,7 +4,7 @@
     --color-light: #eeeeee;
     --color-dark: #393e46;
     --color-1: #aad8d3;
-    --color-2: #00adb5;
+    --color-2: #01747a;
 }
 
 * {
@@ -67,12 +67,13 @@ body {
     display: grid;
     justify-content: center;
     margin-top: 80px;
+    gap: 0.8rem;
 }
 
 #todo-list .status {
     background-color: var(--color-dark);
     text-align: center;
-    margin: 13vh;
+    margin: 10vh;
     border-radius: 0.7rem;
     filter: opacity(80%);
     padding: 4rem;
@@ -92,46 +93,91 @@ body {
     width: 80vw;
     padding: 0.7rem;
     border-radius: .3rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     align-items: baseline;
-    justify-items: center;
+    justify-content: space-between;
+}
+
+.todo .doInput {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap:1rem;
+}
+
+.todo label {
+    font-size: 1.3rem;
 }
 
 .todo .actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    margin-top: .5rem;
+    margin-right: 1rem;
 }
 
 .todo .actions button {
-    background: #fff;
-    border: 2px solid rgb(189, 189, 189);
-    color:var(--color-dark);
-    padding: .4rem;
-    font-size: 1rem;
+    background: var(--color-dark);
+    border: none;
+    color: aliceblue;
+    font-size: 1.1rem;
     outline: none;
     font-weight: bold;
+    transition: transform .3s;
 }
 
-.todo .actions button:focus {
-    border: 2px solid var(--color-dark);
+.todo .actions button:hover {
+    filter: brightness(1.1);
+    transform: scale(1.09);
 }
 
-.todo .actions button:nth-child(2) {
-    background: var(--color-first);
-    color: white;
-    border: 2px solid var(--color-first);
+.doInput {
+    margin-left: 1rem;
+    cursor: pointer;
+    user-select: none;
+} 
+
+.options {
+    font-size: 1.2rem;
+    background-color: var(--color-dark);
+    width: 80vw;
+    padding: 0.7rem;
+    border-radius: .3rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
 }
 
-.todo .actions button:nth-child(2):focus {
-    border-color: var(--color-second);
+.options input {
+    margin-left: 1rem;
+    border-radius: .5rem;
+    background-color: var(--color-dark);
+    border: none;
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 1.3rem;
 }
 
-input[type="checkbox"] {
-    display: inline-block;
+.options .optBot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     margin-right: 1rem;
+}
+
+.options .optBot button {
+    background: var(--color-dark);
+    border: none;
+    color: aliceblue;
+    font-size: 1.1rem;
+    outline: none;
+    font-weight: bold;
+    transition: transform .3s;
+}
+
+.options .optBot button:hover {
+    filter: brightness(1.1);
+    transform: scale(1.09);
 }
 
 #bot  {
@@ -154,7 +200,7 @@ form {
     width: 80vw;
     color: aliceblue;
     background-color: var(--color-dark);
-    filter: opacity(85%);
+    filter: opacity(95%);
     border: none;
     outline: none;
     border-top-right-radius: 0.3rem;
@@ -168,7 +214,7 @@ form {
     width: 4%;
     outline: none;
     background: var(--color-dark);
-    filter: opacity(85%);
+    filter: opacity(95%);
     color: gray;
     font-weight: bold;
     font-size: 1.3rem;
@@ -176,3 +222,18 @@ form {
     border-bottom-left-radius: 0.3rem;
     border: none;
 }
+
+::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 5px 5px 5px 5px var(--color-dark);
+    filter: opacity(75%);
+    border-radius: 2rem;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-2);
+    border-radius: 10px;
+  }

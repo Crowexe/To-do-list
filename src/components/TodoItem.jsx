@@ -12,37 +12,40 @@ const TodoItem = ({ id, todo, completed, handleChangeCompletedTodo, deleteTodo, 
 
     if(isEditing){
         return (
-           <div>
+           <div className="options">
                <input 
                     type="text" 
                     value={editedTodo} 
                     onChange={(e) => setEditedTodo(e.target.value)} 
                 />
-               <button onClick={() => setIsEditing(false)}>Cancel</button>
-               <button onClick={handleSaveTodo}>Save</button>
-           </div>
+                <section className="optBot">
+                    <button onClick={() => setIsEditing(false)}><i class="far fa-window-close" /></button>
+                    <button onClick={handleSaveTodo}><i class="far fa-save" /></button>
+                </section>
+            </div>
         )
     }
 
     return (
         <section className="todo">
-            <div className="texto">
+            <section className="doInput">
                 <input 
                     id={`todo-${id}`} 
                     type="checkbox" 
                     checked={completed} 
                     onClick={() => handleChangeCompletedTodo(id)}
                 />
-            </div>
+                <label>|</label>
                 <label htmlFor={`todo-${id}`}>{todo}</label>
-                <div className="actions">
-                <button onClick={() => setIsEditing(true)}>Edit</button>
+            </section>
+            <div className="actions">
+                <button onClick={() => setIsEditing(true)}><i class="far fa-edit" /></button>
                 <button
                     onClick={() => deleteTodo(id)}
-                >Remove</button>
+                ><i class="far fa-trash-alt" /></button>
             </div>
         </section>
-    )
+    );
 }
 
 export default TodoItem
